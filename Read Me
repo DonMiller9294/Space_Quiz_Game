@@ -1,0 +1,39 @@
+
+Space Quiz Game is a simple interactive quiz application built using Python's `tkinter` library. The game presents space-related questions to the player and prompts them to answer. Players can type in their answers and submit to check if they are correct. The game keeps track of the player's score and provides feedback on each submission.
+
+## Features
+
+- Interactive user interface using `tkinter`.
+- Display of space-related questions and acceptance of user answers.
+- Instant feedback on the correctness of the user's answers.
+- Score tracking throughout the quiz.
+
+## Getting Started
+
+1. Clone the repository to your local machine using `git clone https://github.com/your-username/space-quiz-game.git`.
+2. Navigate to the project directory: `cd space-quiz-game`.
+3. Run the game: `python quiz_app.py`.
+
+## Requirements
+
+- Python 3.x
+- `tkinter` library (included with most standard Python installations)
+- `PIL` (Python Imaging Library) for image support
+
+## Usage
+
+1. Run the game script by executing `quiz_app.py` using Python.
+2. Answer each question by typing your response in the provided entry field.
+3. Click the "Submit" button to check your answer.
+4. The game will provide instant feedback on whether your answer is correct or not.
+5. Continue answering questions until the quiz is completed.
+6. After completing the quiz, your final score will be displayed.
+
+## Acknowledgements
+
+This project was inspired by the interest in space and astronomy. The questions are curated to engage players and encourage them to learn more about the universe around us.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
