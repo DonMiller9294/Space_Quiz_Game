@@ -1,0 +1,64 @@
+import tkinter as tk
+from PIL import Image, ImageTk
+
+class QuizApp:
+    def __init__(self,root):
+        self.root = root
+        self.root.title('Space Quiz Game')
+        self.root.geometry('500x500')
+
+        self.score = 0
+
+        # This will convert JPG image into a GIF
+        jpg_image = Image.open('image_1.jpg')
+        self.gif_image = ImageTk.PhotoImage(jpg_image)
+
+        self.background_label = tk.Label(root, image=self.gif_image)
+        self.background_label.place(relwidth=1, relheight=1)
+
+        self.question_label = tk.Label(root, font=('calibri', 16), wraplength=400, background='black', foreground='white')
+        self.question_label.pack(pady=20)
+
+        self.answer_var = tk.StringVar()
+        self.answer_entry = tk.Entry(root, font=('calibri', 14), textvariable=self.answer_var)
+        self.answer_entry.pack(pady=10)
+
+        self.submit_button = tk.Button(root, text='Submit', command=self.check_answer)
+        self.submit_button.pack()
+
+        self.questions = [
+            {'question': 'What is the largest planet in our solar system?', 'answer':'Jupiter'},
+            {'question': 'What planet is known as the red planet?', 'answer': 'Mars'},
+            {'question': 'What is the brightest start in the night sky?', 'answer': 'Sirius'},
+            {'question': 'What is the name of the galaxy that contains our solar system?', 'answer':'Milky Way'},
+            {'question': 'Which planet has the most moons', 'answer': 'Jupiter'}
+        ]
+
+        self.current_question = 0
+        self.display_question()
+
+    def display_question(self):
+        if self.current_question < len(self.questions):
+            self.question_label.config(text=self.questions[self.current_question]['question'])
+            self.answer_var.set('')
+        else:
+            self.question_label.config(text=f'Quiz completed! Your score: {self.score}/{len(self.questions)}')
+            self.answer_entry.config(state='disabled')
+            self.submit_button.config(state='disabled')
+
+    def check_answer(self):
+        user_answer = self.answer_var.get().strip()
+        correct_answer = self.questions[self.current_question]['answer']
+
+        if user_answer.lower() == correct_answer.lower():
+            self.score += 1
+            self.current_question += 1
+            self.display_question()
+        else:
+            self.question_label.config(text='Incorrect! Try again.')
+
+if __name__ =="__main__":
+    root = tk.Tk()
+    app = QuizApp(root)
+    root.mainloop()
+
